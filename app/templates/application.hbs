@@ -1,0 +1,33 @@
+{{!-- <section class="pb-4">
+  <h2 class="text-center">CRUD application in Ember Js</h2>
+
+  <span>Click to <a href="/add-application/">Add Application </a></span>
+
+</section> --}}
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="/">Ember CRUD</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav"
+    aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav">
+
+      <li class="nav-item">
+        {{!-- <a class="nav-link" href="/add-application/">Add Aplication</a> --}}
+        {{#link-to "add-application" class="nav-link"}}Add Application{{/link-to}}
+      </li>
+      <li class="nav-item">
+        {{!-- <a class="nav-link" href="/application-list/">Application List</a> --}}
+        {{#link-to "application-list" class="nav-link"}}Application List{{/link-to}}
+      </li>
+
+    </ul>
+  </div>
+</nav>
+
+<h2 class="d-flex justify-content-center mess">Welcome to ember crud</h2>
+
+
+{{outlet}}

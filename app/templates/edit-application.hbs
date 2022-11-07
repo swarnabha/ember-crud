@@ -1,0 +1,32 @@
+<h2 class="d-flex justify-content-center">Edit application</h2>
+
+<section class="pb-4">
+
+    <div class="bg-white border rounded-5">
+        <section class="w-100 p-4 d-flex justify-content-center pb-4">
+
+            <form>
+                <div class="form-outline mb-4">
+                    <label class="form-label" for="name">Name</label>
+                    {{input value=model.name placeholder="Enter Your Name" class="form-control"}}
+                </div>
+
+                <div class="form-outline mb-4">
+                    <label class="form-label" for="age">Age</label>
+                    {{input value=model.age placeholder="Enter Your Age" class="form-control"}}
+                </div>
+
+                <div class="form-outline mb-4">
+                    <label class="form-label" for="phone">Phone</label>
+                    {{input value=model.phone placeholder="Enter Your Phone" class="form-control"}}
+                </div>
+
+                <!-- Submit button -->
+                <button class="btn btn-primary btn-block" {{action 'updateApplication' }}>Update Application</button>
+                {{#link-to "application-list" class="btn btn-info"}} List {{/link-to}}
+
+            </form>
+
+        </section>
+    </div>
+</section>

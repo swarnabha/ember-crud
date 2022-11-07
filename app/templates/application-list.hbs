@@ -1,0 +1,32 @@
+<section class="pb-4">
+
+    <div class="bg-white border rounded-5">
+        <section class="w-100 p-4 d-flex justify-content-center pb-4">
+
+            <div class="table table-responsive">
+                <table class="table">
+                    <tr>
+                        <th scope="col">User</th>
+                        <th scope="col">Age</th>
+                        <th scope="col">Phone</th>
+                        <th scope="col">Action</th>
+                    </tr>
+
+                    {{#each model.data as |app|}}
+                    <tr>
+                        <td>{{app.name}} {{app.id}}</td>
+                        <td>{{app.age}}</td>
+                        <td>{{app.phone}}</td>
+                        <td>
+
+                            <button {{action "destroyApplication" app.id }} class="btn btn-info"> Delete </button>
+
+                            {{#link-to "edit-application" app.id class="btn btn-info"}}Edit{{/link-to}}
+                        </td>
+                    </tr>
+                    {{/each}}
+                </table>
+            </div>
+        </section>
+    </div>
+</section>
