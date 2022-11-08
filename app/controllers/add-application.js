@@ -7,6 +7,8 @@ export default Controller.extend({
       var name = this.get('name')
       var age = this.get('age')
       var phone = this.get('phone')
+      var email = this.get('email')
+
       var flag = 0;
 
       if(/^[a-zA-Z]+ [a-zA-Z]+$/.test(name)){
@@ -30,12 +32,21 @@ export default Controller.extend({
         alert('Invalid phone given.');
       }
 
+      
+      if(/^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(email)){
+        flag = 0;
+      }else{
+        flag = 1;
+        alert('Invalid email given.');
+      }
+
+
       if(flag == 0){
         let newRecord = this.store.createRecord('application', {
           name: this.get('name'),
+          email: this.get('email'),
           age: this.get('age'),
           phone: this.get('phone')
-
         })
 
         newRecord.save().then(()=>{

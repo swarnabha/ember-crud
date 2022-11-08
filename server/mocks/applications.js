@@ -16,8 +16,8 @@ module.exports = function(app) {
           {
             name: "John Deo",
             age: "21",
-            phone: 920449855,
-
+            phone: 9204498551,
+            email: "johndeo@email.com"
           },
           type: "applications"
         }
@@ -38,6 +38,7 @@ module.exports = function(app) {
           name: req.body.data.attributes.name,
           age: req.body.data.attributes.age,
           phone: req.body.data.attributes.phone,
+          email: req.body.data.attributes.email
         },
         type: "application"
       }
@@ -75,6 +76,9 @@ module.exports = function(app) {
         attributes:
         {
           name: req.body.data.attributes.name,
+          age: req.body.data.attributes.age,
+          phone: req.body.data.attributes.phone,
+          email: req.body.data.attributes.email
         },
         type: "application"
       }

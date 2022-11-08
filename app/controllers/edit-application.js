@@ -8,6 +8,8 @@ export default Controller.extend({
         var name = this.get('model.name')
         var age = this.get('model.age')
         var phone = this.get('model.phone')
+        var email = this.get('model.email')
+
         var flag = 0;
 
         if(/^[a-zA-Z]+ [a-zA-Z]+$/.test(name)){
@@ -32,6 +34,14 @@ export default Controller.extend({
         }else{
           flag = 1;
           alert('Invalid phone given.');
+        }
+
+
+        if(/^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(email)){
+          flag = 0;
+        }else{
+          flag = 1;
+          alert('Invalid email given.');
         }
 
         if(flag == 0){

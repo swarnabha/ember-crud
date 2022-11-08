@@ -1,4 +1,4 @@
-<h2 class="d-flex justify-content-center">List application</h2>
+<h2 class="d-flex justify-content-center app-header">List application</h2>
 
 <section class="pb-4">
 
@@ -8,24 +8,38 @@
             <div class="table table-responsive">
                 <table class="table">
                     <tr>
-                        <th scope="col">User</th>
+                        <th scope="col">#</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Email</th>
                         <th scope="col">Age</th>
                         <th scope="col">Phone</th>
                         <th scope="col">Action</th>
                     </tr>
 
-                    {{#each model.data as |app|}}
+                    {{#each model.data as |app index|}}
                     <tr>
+                        <td>{{index}}</td>
                         <td>{{app.name}}</td>
+                        <td>{{app.email}}</td>
                         <td>{{app.age}}</td>
                         <td>{{app.phone}}</td>
                         <td>
-
-                            <button {{action "destroyApplication" app.id }} class="btn btn-info"> Delete </button>
-
                             {{#link-to "edit-application" app.id class="btn btn-info"}}Edit{{/link-to}}
+                            <button {{action "destroyApplication" app.id }} class="btn btn-info"> Delete </button>
                         </td>
                     </tr>
+                    {{else}}
+                        
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td><p class="text-center">Sorry, nobody is here.</p></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+
                     {{/each}}
                 </table>
             </div>
