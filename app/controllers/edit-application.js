@@ -1,9 +1,17 @@
 import Controller from '@ember/controller';
 
 export default Controller.extend({
+    applicationupdate: "",
+    errors: {},
     actions: {
       
       updateApplication(editid) {
+
+        this.set('applicationupdate', "")
+        this.set('errors.name', '')
+        this.set('errors.age', '')
+        this.set('errors.phone', '')
+        this.set('errors.email', '')
 
         var name = this.get('model.name')
         var age = this.get('model.age')
@@ -12,40 +20,29 @@ export default Controller.extend({
 
         var flag = 0;
 
-        if(/^[a-zA-Z]+ [a-zA-Z]+$/.test(name)){
-          flag = 0;
-          // application.set('name', this.get('model.name'))
-        }else{
+        if(/^[a-zA-Z]+ [a-zA-Z]+$/.test(name) == false){
           flag = 1;
-          alert('Invalid name given.');
+          this.set('errors.name', 'Invalid name given, please mantain proper space.')
         }
-
-        if(/^\S[0-9]{0,3}$/.test(age)){
-          flag = 0;
-          // application.set('age', this.get('model.age'))
-        }else{
-          flag = 1;
-          alert('Invalid age given.');
+  
+        if(/^\S[0-9]{0,3}$/.test(age)  == false){
+           flag = 1;
+          this.set('errors.age', 'Invalid age given.')
         }
-
-        if(/\(?([0-9]{3})\)?([ .-]?)([0-9]{3})\2([0-9]{4})/.test(phone)){
-          flag = 0;
-          // application.set('phone', this.get('model.phone'))
-        }else{
+  
+        if(/\(?([0-9]{3})\)?([ .-]?)([0-9]{3})\2([0-9]{4})/.test(phone) == false){
           flag = 1;
-          alert('Invalid phone given.');
+          this.set('errors.phone', 'Invalid phone number given.')
         }
-
-
-        if(/^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(email)){
-          flag = 0;
-        }else{
+  
+        
+        if(/^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(email) == false){
           flag = 1;
-          alert('Invalid email given.');
+          this.set('errors.email', 'Invalid email given.')
         }
 
         if(flag == 0){
-          alert("Application updated successfully")
+          this.set('applicationupdate', "Application updated successfully")
         }
  
       

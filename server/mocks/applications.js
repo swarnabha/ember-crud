@@ -6,6 +6,14 @@ module.exports = function(app) {
   let applicationsRouter = express.Router();
   let idCounter = 2;
 
+  applicationsRouter.get('/gallery/', function(req, res) {
+    let images = fetch('https://jsonplaceholder.typicode.com/photos')
+      .then(response => {
+        res.send(response.json())
+      })
+  })
+
+
   applicationsRouter.get('/', function(req, res) {
     console.log("<<<<<<<<<<<<<<<<<<<<<<<<<<<<<===============get /=================>>>>>>>>>>>>>>>>>>>>>>>>>>>>>")
     res.send({

@@ -15,14 +15,11 @@ export default Controller.extend({
 
       newRecord.save()
     },
-    // readApplication() {
-    //   // get the input value from the .hbs template
-    //   let id = this.get('ApplicationId')
-    //   // find the record (cheating and using id 1 from my mocked server)
-    //   this.store.findRecord('Application', 1).then((game) => {
-    //     alert(game.get('id') + ' ' +game.get('name') + ' ' +game.get('age') + ' ' + game.get('phone'))
-    //   })
-    // },
+    readApplication() {
+      let images = fetch('https://jsonplaceholder.typicode.com/photos')
+      .then(response => response.json())
+      .then(json => console.log(json))
+    },
     destroyApplication(destroyId) {
       let game = this.get('model').findBy('id', destroyId)
       game.destroyRecord()

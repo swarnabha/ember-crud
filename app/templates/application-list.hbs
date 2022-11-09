@@ -8,7 +8,7 @@
             <div class="table table-responsive">
                 <table class="table">
                     <tr>
-                        <th scope="col">#</th>
+                        {{!-- <th scope="col">#</th> --}}
                         <th scope="col">Name</th>
                         <th scope="col">Email</th>
                         <th scope="col">Age</th>
@@ -18,7 +18,7 @@
 
                     {{#each model.data as |app index|}}
                     <tr>
-                        <td>{{index}}</td>
+                        {{!-- <td>#00{{index}}</td> --}}
                         <td>{{app.name}}</td>
                         <td>{{app.email}}</td>
                         <td>{{app.age}}</td>
@@ -29,16 +29,18 @@
                         </td>
                     </tr>
                     {{else}}
-                        
-                        <tr>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td><p class="text-center">Sorry, nobody is here.</p></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                        </tr>
+
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>
+                            <p class="text-center">Sorry, nobody is here.</p>
+                        </td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
 
                     {{/each}}
                 </table>

@@ -10,6 +10,7 @@ Router.map(function() {
   this.route('edit-application', {path: '/edit-application/:id'});
   this.route('add-application');
   this.route('application-list');
+  this.route('not-found', { path: '/*path' });
 });
 
 export default Router;
